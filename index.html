@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ringuyeneza Company | Electrical Engineering</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">⚡ Ringuyeneza Company</div>
+    <nav id="nav-links">
+      <button onclick="showSection('home')">Home</button>
+      <button id="nav-register" onclick="showSection('register')">Create Account</button>
+      <button id="nav-login" onclick="showSection('login')">Login</button>
+      <button id="nav-dashboard" class="hidden" onclick="showSection('dashboard')">Dashboard</button>
+      <button id="nav-logout" class="hidden btn-danger" onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <!-- 1. HOME SECTION -->
+  <section id="home-section" class="container">
+    <div class="hero">
+      <h1>Welcome to Ringuyeneza Company</h1>
+      <p>Your trusted partner in modern electrical engineering, safe product installation, and reliable maintenance services.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="showSection('register')">Create Account</button>
+        <button class="btn-secondary" onclick="showSection('login')">Login to View Products</button>
+      </div>
+    </div>
+
+    <h2 class="section-title">Our Core Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🔌 Product Installation</h3>
+        <p>Professional residential and commercial electrical wiring, solar inverter setups, and circuit breaker installations.</p>
+      </div>
+      <div class="card">
+        <h3>🛠️ Electrical Maintenance</h3>
+        <p>Routine safety inspections, fault diagnostics, transformer servicing, and emergency electrical repairs.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Electrical Supplies</h3>
+        <p>High-grade stabilizers, smart meters, industrial switches, and backup power equipment ready for purchase.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CREATE ACCOUNT SECTION -->
+  <section id="register-section" class="container hidden">
+    <div class="form-box">
+      <h2>Create Account</h2>
+      <p class="subtitle">Register to access our electrical engineering products and prices.</p>
+      
+      <form id="register-form">
+        <label for="reg-name">Full Name</label>
+        <input type="text" id="reg-name" placeholder="Enter your name" required />
+
+        <label for="reg-phone">Telephone Number</label>
+        <input type="tel" id="reg-phone" placeholder="e.g. 0780000000" required />
+
+        <label for="reg-pin">Create 4-Digit PIN (Password)</label>
+        <input type="password" id="reg-pin" maxlength="4" pattern="\d{4}" placeholder="Enter 4 digits (e.g. 1234)" required />
+
+        <button type="submit" class="btn-primary full-width">Create Account</button>
+      </form>
+
+      <p id="register-msg" class="message"></p>
+      <p class="switch-text">Already have an account? <a href="#" onclick="showSection('login')">Login here</a></p>
+    </div>
+  </section>
+
+  <!-- 3. LOGIN SECTION -->
+  <section id="login-section" class="container hidden">
+    <div class="form-box">
+      <h2>Client Login</h2>
+      <p class="subtitle">Enter your name and 4-digit PIN to open the dashboard.</p>
+
+      <form id="login-form">
+        <label for="login-name">Your Name</label>
+        <input type="text" id="login-name" placeholder="Enter your registered name" required />
+
+        <label for="login-pin">4-Digit PIN</label>
+        <input type="password" id="login-pin" maxlength="4" placeholder="****" required />
+
+        <button type="submit" class="btn-primary full-width">Login</button>
+      </form>
+
+      <p id="login-msg" class="message error"></p>
+      <p class="switch-text">Don't have an account? <a href="#" onclick="showSection('register')">Create one</a></p>
+    </div>
+  </section>
+
+  <!-- 4. DASHBOARD SECTION (PROTECTED) -->
+  <section id="dashboard-section" class="container hidden">
+    <div class="dashboard-header">
+      <div>
+        <h1 id="welcome-user">Welcome to Your Dashboard</h1>
+        <p id="user-phone-display" class="subtitle"></p>
+      </div>
+      <span class="badge">Verified Client</span>
+    </div>
+
+    <h2 class="section-title">Electrical Engineering Products & Services</h2>
+    <div id="product-list" class="grid">
+      <!-- Products are loaded dynamically by script.js -->
+    </div>
+
+    <div class="orders-box">
+      <h3>🛒 Your Selected Orders</h3>
+      <ul id="order-list">
+        <li class="empty-order">No items selected yet. Tap "Tap to Buy" on any service or product above.</li>
+      </ul>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
